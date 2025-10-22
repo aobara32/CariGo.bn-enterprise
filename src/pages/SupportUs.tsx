@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Heart, TrendingUp, Users, Shield } from "lucide-react";
+import { Heart, TrendingUp, Users, Shield, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
 export default function SupportUs() {
@@ -16,6 +16,10 @@ export default function SupportUs() {
   const [investmentType, setInvestmentType] = useState("equity");
 
   const predefinedAmounts = ["25", "50", "100", "250", "500", "1000"];
+
+  const openBIBDTransfer = () => {
+    window.open('https://cib.bibd.com.bn/retail/index.html', '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-accent/5 to-background">
@@ -32,39 +36,6 @@ export default function SupportUs() {
           </p>
         </div>
 
-        {/* Impact Stats */}
-        <section className="max-w-6xl mx-auto mb-16">
-          <div className="grid md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Users className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-foreground mb-1">10,000+</p>
-              <p className="text-sm text-muted-foreground">Active Users</p>
-            </Card>
-            <Card className="p-6 text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Shield className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-foreground mb-1">500+</p>
-              <p className="text-sm text-muted-foreground">Merchants</p>
-            </Card>
-            <Card className="p-6 text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <TrendingUp className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-foreground mb-1">BND 2M+</p>
-              <p className="text-sm text-muted-foreground">Transactions</p>
-            </Card>
-            <Card className="p-6 text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Heart className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-foreground mb-1">4.8/5</p>
-              <p className="text-sm text-muted-foreground">User Rating</p>
-            </Card>
-          </div>
-        </section>
 
         {/* Forms */}
         <div className="max-w-4xl mx-auto">
@@ -82,6 +53,45 @@ export default function SupportUs() {
 
             {/* Donation Form */}
             <TabsContent value="donate">
+              {/* Bank Transfer Information */}
+              <div className="mb-8 p-6 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-2 border-primary/30 rounded-xl">
+                <h3 className="text-xl font-bold mb-4 text-primary text-center flex items-center justify-center gap-2">
+                  🏦 Bank Transfer Information
+                </h3>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between items-center py-2 border-b border-primary/20">
+                    <span className="font-semibold text-foreground">Bank Name:</span>
+                    <span className="text-foreground font-medium">BIBD</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-primary/20">
+                    <span className="font-semibold text-foreground">Account Name:</span>
+                    <span className="text-foreground font-medium">CariGo Enterprise</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-primary/20">
+                    <span className="font-semibold text-foreground">Account Number:</span>
+                    <span className="text-foreground font-medium">00-001-01-0204946</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="font-semibold text-foreground">Swift Code:</span>
+                    <span className="text-foreground font-medium">BIBDBNBB</span>
+                  </div>
+                </div>
+                
+                <Button 
+                  onClick={openBIBDTransfer}
+                  size="lg" 
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white text-lg mb-4"
+                >
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  Open BIBD Transfer Page
+                </Button>
+                
+                <p className="text-sm text-muted-foreground text-center">
+                  💡 After making the transfer, please contact us with the transaction reference number.
+                </p>
+              </div>
+
               <Card className="p-8">
                 <h2 className="text-2xl font-bold mb-6 text-foreground">
                   Support Our Mission
@@ -140,7 +150,7 @@ export default function SupportUs() {
 
                   <div>
                     <Label htmlFor="donorPhone">Phone Number (Optional)</Label>
-                    <Input id="donorPhone" type="tel" placeholder="+673 xxx xxxx" />
+                    <Input id="donorPhone" type="tel" placeholder="+673 8228250" />
                   </div>
 
                   <div>
@@ -227,7 +237,7 @@ export default function SupportUs() {
 
                   <div>
                     <Label htmlFor="investorPhone">Phone Number</Label>
-                    <Input id="investorPhone" type="tel" placeholder="+673 xxx xxxx" />
+                    <Input id="investorPhone" type="tel" placeholder="+673 8228250" />
                   </div>
 
                   <div>

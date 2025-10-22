@@ -35,7 +35,7 @@ export default function FAQ() {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border-2 border-border rounded-lg px-6 data-[state=open]:border-primary transition-colors"
+                className="border-2 border-border rounded-lg px-6 bg-white data-[state=open]:border-primary transition-colors"
               >
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   {t(faq.q)}

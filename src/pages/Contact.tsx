@@ -94,8 +94,8 @@ This message was sent through CariGo Contact Form.
                 <Phone className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-semibold mb-2 text-foreground">{t('contact.info.phone')}</h3>
-              <a href="tel:+673----" className="text-sm text-accent hover:underline">
-                +673 ----
+              <a href="tel:+673 8228250" className="text-sm text-accent hover:underline">
+                +673 8228250
               </a>
             </Card>
 

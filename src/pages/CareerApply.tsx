@@ -131,7 +131,7 @@ This application was submitted through CariGo Careers page.
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+673 XXX XXXX"
+                    placeholder="+673 8228250"
                     className="border-2 focus:border-primary transition-colors"
                     required
                     onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Please enter your phone number')}
