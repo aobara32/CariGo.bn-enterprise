@@ -15,4 +15,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  envPrefix: 'VITE_', // This ensures only VITE_ prefixed vars are exposed
 }));
