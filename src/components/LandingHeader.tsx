@@ -23,27 +23,27 @@ export const LandingHeader = () => {
             <span className="font-bold text-lg font-racing">CariGo</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
-            <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 flex-wrap">
+            <Link to="/about" className="text-xs lg:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               {t('header.about')}
             </Link>
-            <Link to="/features" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link to="/features" className="text-xs lg:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               {t('header.features')}
             </Link>
-            <Link to="/careers" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link to="/careers" className="text-xs lg:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               {t('header.careers')}
             </Link>
-            <Link to="/support" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link to="/support" className="text-xs lg:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               {t('header.support')}
             </Link>
-            <Link to="/faq" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link to="/faq" className="text-xs lg:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               {t('header.faq')}
             </Link>
-            <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link to="/contact" className="text-xs lg:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               {t('header.contact')}
             </Link>
             <LanguageSwitcher />
-            <Button className="bg-gradient-to-r from-gray-400 to-gray-500 text-white cursor-not-allowed" disabled>
+            <Button className="text-xs lg:text-sm px-4 lg:px-6 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white cursor-not-allowed whitespace-nowrap" disabled>
               {t('header.comingSoon')}
             </Button>
           </nav>
@@ -100,7 +100,7 @@ export const LandingHeader = () => {
             >
               {t('header.contact')}
             </Link>
-            <Button className="w-full bg-gradient-to-r from-gray-400 to-gray-500 text-white cursor-not-allowed" disabled>
+            <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white cursor-not-allowed" disabled>
               {t('header.comingSoon')}
             </Button>
           </div>

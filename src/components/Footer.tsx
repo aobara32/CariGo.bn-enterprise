@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t mt-20">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 w-fit hover:opacity-80 transition-opacity">
               <img 
@@ -59,6 +59,22 @@ export const Footer = () => {
               <li>
                 <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   {t('header.contact')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">{t('footer.legal')}</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  {t('footer.privacy')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  {t('footer.terms')}
                 </Link>
               </li>
             </ul>

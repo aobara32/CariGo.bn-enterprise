@@ -115,7 +115,7 @@ export default function About() {
               Cari Murah, Hidup Bijak
             </p>
             <p className="text-muted-foreground">
-              Find Cheap, Live Wisely
+            One app. Every store. A smarter Brunei with CariGo.
             </p>
           </div>
         </article>

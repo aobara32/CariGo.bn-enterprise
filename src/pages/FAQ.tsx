@@ -8,44 +8,91 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+interface FAQGroup {
+  category: string;
+  items: { q: string; a: string }[];
+}
+
 export default function FAQ() {
   const { t } = useLanguage();
 
-  const faqs = [
-    { q: 'faq.q1', a: 'faq.a1' },
-    { q: 'faq.q2', a: 'faq.a2' },
-    { q: 'faq.q3', a: 'faq.a3' },
-    { q: 'faq.q4', a: 'faq.a4' },
-    { q: 'faq.q5', a: 'faq.a5' },
-    { q: 'faq.q6', a: 'faq.a6' },
+  const faqGroups: FAQGroup[] = [
+    {
+      category: 'faq.category.about',
+      items: [
+        { q: 'faq.q1', a: 'faq.a1' },
+        { q: 'faq.q2', a: 'faq.a2' },
+        { q: 'faq.q3', a: 'faq.a3' },
+        { q: 'faq.q4', a: 'faq.a4' },
+      ],
+    },
+    {
+      category: 'faq.category.shoppers',
+      items: [
+        { q: 'faq.q5', a: 'faq.a5' },
+        { q: 'faq.q6', a: 'faq.a6' },
+        { q: 'faq.q7', a: 'faq.a7' },
+        { q: 'faq.q8', a: 'faq.a8' },
+        { q: 'faq.q9', a: 'faq.a9' },
+      ],
+    },
+    {
+      category: 'faq.category.vendors',
+      items: [
+        { q: 'faq.q10', a: 'faq.a10' },
+      ],
+    },
+    {
+      category: 'faq.category.vision',
+      items: [
+        { q: 'faq.q17', a: 'faq.a17' },
+        { q: 'faq.q18', a: 'faq.a18' },
+        { q: 'faq.q19', a: 'faq.a19' },
+        { q: 'faq.q20', a: 'faq.a20' },
+      ],
+    },
   ];
+
+  let itemIndex = 0;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-primary/5 to-background">
       <LandingHeader />
 
       <main className="container mx-auto px-4 py-16 md:py-24">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center">
             {t('faq.title')}
           </h1>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="border-2 border-border rounded-lg px-6 bg-white data-[state=open]:border-primary transition-colors"
-              >
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                  {t(faq.q)}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                  {t(faq.a)}
-                </AccordionContent>
-              </AccordionItem>
+          <div className="space-y-12">
+            {faqGroups.map((group, groupIndex) => (
+              <div key={groupIndex}>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground border-b-2 border-primary/30 pb-3">
+                  {t(group.category)}
+                </h2>
+                <Accordion type="single" collapsible className="space-y-4">
+                  {group.items.map((faq) => {
+                    const currentIndex = itemIndex++;
+                    return (
+                      <AccordionItem 
+                        key={currentIndex} 
+                        value={`item-${currentIndex}`}
+                        className="border-2 border-border rounded-lg px-6 bg-white data-[state=open]:border-primary transition-colors"
+                      >
+                        <AccordionTrigger className="text-lg font-semibold hover:text-primary text-left">
+                          {t(faq.q)}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground text-base leading-relaxed whitespace-pre-line">
+                          {t(faq.a)}
+                        </AccordionContent>
+                      </AccordionItem>
+                    );
+                  })}
+                </Accordion>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </main>
 

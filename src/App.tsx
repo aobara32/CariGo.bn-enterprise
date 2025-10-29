@@ -15,37 +15,50 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import CareerApply from "./pages/CareerApply";
 import SupportUs from "./pages/SupportUs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import SupabaseTest from "./pages/SupabaseTest";
+import FormSuccess from "./pages/FormSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        {/* Toast Debugger - Only displayed in development environment */}
-        {import.meta.env.DEV && <ToastDebugger />}
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/careers/apply" element={<CareerApply />} />
-            <Route path="/support" element={<SupportUs />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </LanguageProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Debug on app load
+  console.log('🚀 CariGo App Starting...')
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          {/* Toast Debugger - Only displayed in development environment */}
+          {import.meta.env.DEV && <ToastDebugger />}
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/features" element={<Features />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/careers/apply" element={<CareerApply />} />
+              <Route path="/support" element={<SupportUs />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/form-success" element={<FormSuccess />} />
+              <Route path="/supabase-test" element={<SupabaseTest />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
+    </QueryClientProvider>
+  )
+}
 
 export default App;

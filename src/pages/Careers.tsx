@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Search, MapPin, Clock, Briefcase } from "lucide-react";
+import { Search, MapPin, Clock, Briefcase, Settings, Target, Rocket, FileText } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +14,12 @@ interface Job {
   department: string;
   location: string;
   type: string;
+  compensation: string;
   description: string;
+  responsibilities: string[];
   requirements: string[];
+  idealFor: string[];
+  seniorityTracks?: string[];
 }
 
 export default function Careers() {
@@ -25,86 +29,134 @@ export default function Careers() {
   const jobs: Job[] = [
     {
       id: 1,
-      title: "Senior Frontend Developer",
+      title: "Full-Stack Developer (Web / Mobile)",
       department: "Engineering",
-      location: "Bandar Seri Begawan",
-      type: "Full-time",
-      description: "We're looking for an experienced Frontend Developer to help build the future of e-commerce in Brunei. You'll work on our React-based platform and create amazing user experiences.",
+      location: "Hybrid (Brunei-Muara preferred)",
+      type: "Full-time / Part-time / Internship",
+      compensation: "Negotiable (equity options available for core members)",
+      description: "Build and maintain our core CariGo platform (web + mobile). Integrate payment APIs, product search, and merchant dashboard features.",
+      responsibilities: [
+        "Build and maintain our core CariGo platform (web + mobile)",
+        "Integrate payment APIs, product search, and merchant dashboard features",
+        "Collaborate with design and product teams on UI/UX improvements",
+        "Participate in feature planning and sprint reviews",
+      ],
       requirements: [
-        "5+ years of experience with React and TypeScript",
-        "Strong understanding of modern web technologies",
-        "Experience with responsive design and mobile-first approach",
-        "Excellent problem-solving skills",
+        "Experience with JavaScript / TypeScript or React",
+        "Familiarity with Firebase, Firestore, or similar backends",
+        "Understanding of API design (REST / GraphQL)",
+        "(Nice to have) knowledge of Next.js",
+      ],
+      idealFor: [
+        "Computer science students or self-taught developers",
+        "Startups / freelancers seeking real-world app launch experience",
+      ],
+      seniorityTracks: [
+        "Junior Developer: portfolio or code samples welcome",
+        "Senior Developer: 3+ years of experience, may lead sub-team and mentor juniors",
       ],
     },
     {
       id: 2,
-      title: "Product Manager",
-      department: "Product",
-      location: "Bandar Seri Begawan",
-      type: "Full-time",
-      description: "Join our product team to shape the future of shopping in Brunei. You'll work closely with engineering, design, and business teams to deliver innovative features.",
+      title: "UI/UX Designer (Product Design)",
+      department: "Design",
+      location: "Remote or Hybrid",
+      type: "Contract / Freelance / Internship",
+      compensation: "Project-based / Monthly retainer",
+      description: "Create clean, intuitive user interfaces for both users and vendors. Conduct usability testing and optimize workflows.",
+      responsibilities: [
+        "Create clean, intuitive user interfaces for both users and vendors",
+        "Conduct usability testing and optimize workflows",
+        "Collaborate with developers to ensure smooth design implementation",
+        "Develop design systems (colors, typography, components)",
+      ],
       requirements: [
-        "3+ years of product management experience",
-        "Strong analytical and communication skills",
-        "Experience with e-commerce platforms",
-        "Understanding of local market dynamics",
+        "Proficiency in Figma / Adobe XD / Sketch",
+        "Portfolio of app or web designs (student projects accepted)",
+        "Understanding of responsive design and accessibility basics",
+      ],
+      idealFor: [
+        "Students in design, digital media, or related fields",
+        "Visual thinkers who want to shape the look and feel of a growing startup",
+      ],
+      seniorityTracks: [
+        "Junior Designer: no experience required — just enthusiasm and creativity",
+        "Senior Designer: experience designing SaaS or marketplace apps",
       ],
     },
     {
       id: 3,
-      title: "UX/UI Designer",
-      department: "Design",
-      location: "Bandar Seri Begawan",
-      type: "Full-time",
-      description: "Create beautiful and intuitive interfaces for our mobile and web applications. Help us design experiences that delight our users.",
+      title: "Business Development & Partnerships Lead",
+      department: "Business",
+      location: "Brunei (fieldwork possible)",
+      type: "Full-time / Part-time",
+      compensation: "Base pay + commission + equity (negotiable)",
+      description: "Reach out to local retailers and onboard vendors onto the CariGo platform. Build partnerships with payment providers, logistics companies, and local SMEs.",
+      responsibilities: [
+        "Reach out to local retailers and onboard vendors onto the CariGo platform",
+        "Build partnerships with payment providers, logistics companies, and local SMEs",
+        "Represent CariGo at events, exhibitions, and meetings with institutions",
+        "Prepare basic reports and feedback to improve vendor experience",
+      ],
       requirements: [
-        "3+ years of UX/UI design experience",
-        "Proficiency in Figma and design tools",
-        "Portfolio demonstrating mobile-first design",
-        "Understanding of accessibility standards",
+        "Strong communication and presentation skills (English + Malay)",
+        "Confidence in speaking with business owners and partners",
+        "Basic understanding of digital platforms or e-commerce concepts",
+      ],
+      idealFor: [
+        "Entrepreneurs, sales enthusiasts, or final-year business students",
+        "People who love connecting with Brunei's business community",
+      ],
+      seniorityTracks: [
+        "Business Associate (Junior): no prior experience required — full training provided",
+        "Partnership Manager (Senior): 3+ years in business dev, startup, or retail network management",
       ],
     },
     {
       id: 4,
-      title: "Backend Developer",
-      department: "Engineering",
-      location: "Bandar Seri Begawan",
-      type: "Full-time",
-      description: "Build scalable and reliable backend systems to support our growing platform. Work with modern technologies and cloud infrastructure.",
+      title: "Marketing & Content Strategist",
+      department: "Marketing",
+      location: "Remote or Hybrid",
+      type: "Freelance / Part-time",
+      compensation: "Based on campaign budget / retainer",
+      description: "Plan and execute social media campaigns. Write blog posts, app updates, and press materials. Develop marketing materials for vendor acquisition.",
+      responsibilities: [
+        "Plan and execute social media campaigns (Instagram, TikTok, X, Facebook)",
+        "Write blog posts, app updates, and press materials",
+        "Develop marketing materials for vendor acquisition",
+        "Analyze engagement and growth metrics",
+      ],
       requirements: [
-        "4+ years of backend development experience",
-        "Experience with Node.js, Python, or Go",
-        "Knowledge of database systems and API design",
-        "Understanding of cloud platforms (AWS, GCP, or Azure)",
+        "Writing fluency in English and/or Malay",
+        "Familiarity with Canva, CapCut, or social media scheduling tools",
+        "(Optional) photography / short-form video editing skills",
+      ],
+      idealFor: [
+        "Students in communication, media, or marketing",
+        "Creators with a passion for storytelling and brand building",
       ],
     },
     {
       id: 5,
-      title: "Marketing Specialist",
-      department: "Marketing",
-      location: "Bandar Seri Begawan",
-      type: "Full-time",
-      description: "Drive growth and engagement through creative marketing campaigns. Help us reach and connect with customers across Brunei.",
-      requirements: [
-        "2+ years of digital marketing experience",
-        "Experience with social media marketing",
-        "Strong content creation skills",
-        "Understanding of local market and culture",
+      title: "Operations & Admin Support",
+      department: "Operations",
+      location: "Brunei (office / remote mix)",
+      type: "Part-time / Internship",
+      compensation: "Allowance / Stipend",
+      description: "Support merchant onboarding and documentation. Assist in verification (KYC) and database organization. Prepare reports and maintain internal spreadsheets.",
+      responsibilities: [
+        "Support merchant onboarding and documentation",
+        "Assist in verification (KYC) and database organization",
+        "Prepare reports and maintain internal spreadsheets",
+        "Coordinate schedules for meetings and events",
       ],
-    },
-    {
-      id: 6,
-      title: "Data Analyst",
-      department: "Analytics",
-      location: "Bandar Seri Begawan",
-      type: "Full-time",
-      description: "Turn data into insights that drive business decisions. Work with large datasets to identify trends and opportunities.",
       requirements: [
-        "2+ years of data analysis experience",
-        "Proficiency in SQL and data visualization tools",
-        "Experience with Python or R for analysis",
-        "Strong communication skills",
+        "Organized, detail-oriented, comfortable with Google Sheets and Docs",
+        "Good written English / Malay",
+        "Discretion with confidential data",
+      ],
+      idealFor: [
+        "University students seeking operational experience in tech startups",
       ],
     },
   ];
@@ -123,12 +175,28 @@ export default function Careers() {
       <main className="container mx-auto px-4 py-16 md:py-24">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground font-racing">
-            Careers at CariGo
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <span className="font-racing">Join the CariGo Team</span>
+            <br className="mb-2" />
+            <span className="font-normal text-3xl md:text-4xl">Building Brunei's Next Digital Marketplace</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8">
-            Join us in revolutionizing the shopping experience in Brunei. We're building a team of passionate individuals who want to make a real impact.
-          </p>
+          <div className="text-left max-w-3xl mx-auto mb-8 space-y-6">
+            <div>
+              <h2 className="text-2xl font-bold mb-3 text-foreground">About CariGo</h2>
+              <p className="text-muted-foreground leading-relaxed mb-2">
+                CariGo is a Brunei-born startup transforming how local commerce works — connecting neighborhood stores with customers through one simple app.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                We're currently a small, focused team of three founders and developers, and we're looking for passionate individuals who want to shape the next stage of Brunei's digital innovation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mt-4 font-semibold">
+                If you're creative, driven, and believe local innovation can change everyday life — we want you with us.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">Open Positions</h2>
+            </div>
+          </div>
         </div>
 
         {/* Search */}
@@ -192,57 +260,104 @@ export default function Careers() {
                   </Button>
                 </div>
 
+                <div className="mb-4">
+                  <Badge variant="outline" className="mb-2">
+                    Compensation: {job.compensation}
+                  </Badge>
+                </div>
+
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {job.description}
                 </p>
 
-                <div>
-                  <h3 className="font-semibold text-foreground mb-2">Requirements:</h3>
-                  <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                    {job.requirements.map((req, index) => (
-                      <li key={index}>{req}</li>
-                    ))}
-                  </ul>
+                <div className="space-y-4 mb-4">
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Responsibilities:</h3>
+                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      {job.responsibilities.map((resp, index) => (
+                        <li key={index}>{resp}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Requirements:</h3>
+                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      {job.requirements.map((req, index) => (
+                        <li key={index}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Ideal for:</h3>
+                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      {job.idealFor.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {job.seniorityTracks && job.seniorityTracks.length > 0 && (
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-2">Seniority Tracks:</h3>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        {job.seniorityTracks.map((track, index) => (
+                          <li key={index}>{track}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </Card>
             ))
           )}
         </div>
 
-        {/* Why Join Us Section */}
+        {/* General Benefits Section */}
         <section className="max-w-6xl mx-auto mt-20">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Why Join CariGo?
+             General Benefits
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🚀</span>
+          <Card className="relative overflow-hidden p-8 md:p-10 border-0 shadow-xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+            <div className="pointer-events-none absolute inset-0 opacity-40 [mask-image:radial-gradient(closest-side,white,transparent)]">
+              <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-primary/30 blur-3xl" />
+              <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-accent/30 blur-3xl" />
+            </div>
+
+            <div className="relative grid gap-4 md:gap-6 md:grid-cols-2">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-6 w-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                  <Settings className="h-3.5 w-3.5" />
+                </div>
+                <p className="text-foreground/90">Work directly with CariGo's founding team <span className="font-semibold">(core decision-making)</span></p>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Innovation</h3>
-              <p className="text-muted-foreground">
-                Work on cutting-edge technology and shape the future of e-commerce in Brunei
-              </p>
-            </Card>
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🌟</span>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-6 w-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                  <Clock className="h-3.5 w-3.5" />
+                </div>
+                <p className="text-foreground/90">Flexible hours — <span className="font-semibold">remote or hybrid</span> supported</p>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Growth</h3>
-              <p className="text-muted-foreground">
-                Continuous learning opportunities and career development in a fast-growing company
-              </p>
-            </Card>
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🤝</span>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-6 w-6 rounded-full bg-accent/20 text-accent flex items-center justify-center">
+                  <Target className="h-3.5 w-3.5" />
+                </div>
+                <p className="text-foreground/90">Potential for <span className="font-semibold">equity</span> or co‑founder track</p>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Team</h3>
-              <p className="text-muted-foreground">
-                Collaborate with talented individuals who are passionate about making a difference
-              </p>
-            </Card>
-          </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-6 w-6 rounded-full bg-accent/20 text-accent flex items-center justify-center">
+                  <Rocket className="h-3.5 w-3.5" />
+                </div>
+                <p className="text-foreground/90">Hands-on exposure to <span className="font-semibold">scaling, launches, funding</span></p>
+              </div>
+              <div className="flex items-start gap-3 md:col-span-2">
+                <div className="mt-1 h-6 w-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                  <FileText className="h-3.5 w-3.5" />
+                </div>
+                <p className="text-foreground/90">Reference letters, certificates, and <span className="font-semibold">mentorship</span> for students or interns</p>
+              </div>
+            </div>
+          </Card>
         </section>
       </main>
 

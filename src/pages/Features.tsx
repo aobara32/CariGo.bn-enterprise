@@ -18,7 +18,7 @@ export default function Features() {
         t('features.compare.benefit2'),
         t('features.compare.benefit3'),
       ],
-      videoPlaceholder: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+      imageUrl: '/assets/compare.jpg',
       color: 'primary',
     },
     {
@@ -31,7 +31,7 @@ export default function Features() {
         t('features.inventory.benefit2'),
         t('features.inventory.benefit3'),
       ],
-      videoPlaceholder: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
+      imageUrl: '/assets/stock.jpg',
       color: 'accent',
     },
     {
@@ -44,7 +44,7 @@ export default function Features() {
         t('features.map.benefit2'),
         t('features.map.benefit3'),
       ],
-      videoPlaceholder: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800&q=80',
+      imageUrl: '/assets/map.jpg',
       color: 'primary',
     },
     {
@@ -57,7 +57,7 @@ export default function Features() {
         t('features.allinone.benefit2'),
         t('features.allinone.benefit3'),
       ],
-      videoPlaceholder: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80',
+      imageUrl: '/assets/complete.jpg',
       color: 'accent',
     },
   ];
@@ -81,11 +81,11 @@ export default function Features() {
         <div className="space-y-32">
           {features.map((feature, index) => (
             <section key={feature.id} className="scroll-mt-20">
-              <div className={`grid md:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'md:flex-row-reverse' : ''
+              <div className={`grid sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center ${
+                index % 2 === 1 ? 'sm:flex-row-reverse' : ''
               }`}>
                 {/* Content Side */}
-                <div className={`space-y-6 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                <div className={`space-y-4 sm:space-y-6 ${index % 2 === 1 ? 'sm:order-2' : ''}`}>
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${
                     feature.color === 'primary' 
                       ? 'bg-gradient-to-br from-primary to-primary/80' 
@@ -121,23 +121,17 @@ export default function Features() {
                   </div>
                 </div>
 
-                {/* Video/Image Side */}
-                <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                  <Card className="overflow-hidden border-2 border-primary/20 shadow-2xl">
+                {/* Image Side */}
+                <div className={index % 2 === 1 ? 'sm:order-1' : ''}>
+                  <Card className="overflow-hidden border-2 border-primary/20 shadow-xl">
                     <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
                       <img 
-                        src={feature.videoPlaceholder}
-                        alt={`${feature.title} demonstration`}
+                        src={feature.imageUrl}
+                        alt={`${feature.title} illustration`}
                         className="w-full h-full object-cover"
                       />
-                      {/* Video overlay placeholder */}
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <div className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-                          <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-primary border-b-8 border-b-transparent ml-1" />
-                        </div>
-                      </div>
-                      <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <p className="text-xs font-semibold text-primary-foreground">Coming Soon</p>
+                      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-primary/90 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1 rounded-full">
+                        <p className="text-xs font-semibold text-primary-foreground">Feature Preview</p>
                       </div>
                     </div>
                   </Card>
