@@ -140,14 +140,19 @@ export default function Contact() {
                   <p className="text-muted-foreground">{t('contact.vendor.description')}</p>
                 </div>
               </div>
-              <Button
-                onClick={() => window.location.href = '/careers?business=true'}
-                size="lg"
-                className="bg-red-500 hover:bg-red-600 text-white"
+              <a 
+                href="https://carigo-for-vendor.onrender.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
               >
-                <Store className="w-5 h-5 mr-2" />
-                {t('contact.vendor.button')}
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-red-500 hover:bg-red-600 text-white"
+                >
+                  <Store className="w-5 h-5 mr-2" />
+                  {t('contact.vendor.button')}
+                </Button>
+              </a>
             </div>
           </Card>
 

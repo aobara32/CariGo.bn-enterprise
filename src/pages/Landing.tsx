@@ -172,7 +172,7 @@ export default function Landing() {
           </p>
           
           <a 
-            href="https://merchant.carigo.com" 
+            href="https://carigo-for-vendor.onrender.com/" 
             target="_blank" 
             rel="noopener noreferrer"
           >
