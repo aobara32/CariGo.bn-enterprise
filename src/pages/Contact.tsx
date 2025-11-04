@@ -132,7 +132,7 @@ export default function Contact() {
           <Card className="mb-8 p-6 border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0 aspect-square">
                   <Store className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export default function Contact() {
 
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-6 flex-shrink-0 aspect-square">
               <MessageSquare className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-racing">
@@ -172,7 +172,7 @@ export default function Contact() {
           {/* Contact Info Cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <Card className="p-6 text-center border-2 border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-4 flex-shrink-0 aspect-square">
                 <Mail className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-semibold mb-2 text-foreground">{t('contact.info.email')}</h3>
@@ -182,7 +182,7 @@ export default function Contact() {
             </Card>
 
             <Card className="p-6 text-center border-2 border-accent/20 bg-gradient-to-br from-accent/10 to-accent/5 hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center mx-auto mb-4 flex-shrink-0 aspect-square">
                 <Phone className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-semibold mb-2 text-foreground">{t('contact.info.phone')}</h3>
@@ -192,7 +192,7 @@ export default function Contact() {
             </Card>
 
             <Card className="p-6 text-center border-2 border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-4 flex-shrink-0 aspect-square">
                 <MapPin className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-semibold mb-2 text-foreground">{t('contact.info.address')}</h3>
